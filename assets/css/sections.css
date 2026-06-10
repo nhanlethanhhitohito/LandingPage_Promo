@@ -6,7 +6,7 @@
 .hero {
   padding-top: calc(var(--nav-h) + var(--space-7));
   padding-bottom: var(--space-9);
-  background: var(--gradient-hero-light);
+  /* background: var(--gradient-hero-light); */
   position: relative;
   overflow: clip;
 }
@@ -42,7 +42,7 @@
 }
 .hero__product {
   max-width: 380px;
-  width: 100%;
+  width: 60%;
   filter: drop-shadow(0 30px 40px rgba(10,42,94,0.25));
 }
 @media (min-width: 1024px) { .hero__product { max-width: 460px; } }
@@ -117,7 +117,7 @@
 .showcase__stage {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap: var(--space-5);
   max-width: 720px;
   margin-inline: auto;
@@ -138,6 +138,217 @@
   justify-content: center;
   gap: var(--space-5);
   margin-top: var(--space-7);
+}
+
+.showcase__overview {
+  margin-top: var(--space-8);
+  padding: var(--space-7) var(--space-4);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at top, rgba(43,91,168,0.12), transparent 42%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+}
+@media (min-width: 768px) {
+  .showcase__overview {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+@media (min-width: 1024px) {
+  .showcase__overview {
+    padding: var(--space-9) var(--space-7);
+  }
+}
+
+.showcase__overview-head {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.showcase__overview-head .h-2 {
+  margin-top: var(--space-3);
+}
+.showcase__overview-head .lead {
+  margin: var(--space-4) auto 0;
+}
+
+.showcase-overview {
+  margin-top: var(--space-7);
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .showcase-overview__rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .showcase-overview {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 360px) minmax(0, 1fr);
+    gap: var(--space-7);
+  }
+}
+
+.showcase-overview__rail {
+  display: grid;
+  gap: var(--space-4);
+}
+.showcase-overview__rail--left {
+  order: 2;
+}
+.showcase-overview__rail--right {
+  order: 3;
+}
+@media (min-width: 1024px) {
+  .showcase-overview__rail {
+    gap: var(--space-5);
+  }
+  .showcase-overview__rail--left {
+    order: 1;
+    justify-items: end;
+  }
+  .showcase-overview__rail--right {
+    order: 3;
+    justify-items: start;
+  }
+}
+
+.showcase-overview__product-wrap {
+  order: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 380px;
+  padding: var(--space-6) var(--space-4);
+}
+.showcase-overview__product-wrap::before {
+  content: "";
+  position: absolute;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(10,42,94,0.14) 0%, rgba(10,42,94,0.05) 52%, transparent 74%);
+}
+.showcase-overview__product-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: var(--space-6);
+  width: min(78%, 260px);
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(10,42,94,0.14);
+  filter: blur(20px);
+}
+.showcase-overview__product-image {
+  position: relative;
+  z-index: 1;
+  width: min(72vw, 280px);
+  max-width: 320px;
+  height: auto;
+  filter: drop-shadow(0 28px 40px rgba(10,42,94,0.22));
+}
+@media (min-width: 768px) {
+  .showcase-overview__product-wrap {
+    min-height: 480px;
+  }
+}
+@media (min-width: 1024px) {
+  .showcase-overview__product-wrap {
+    order: 2;
+    min-height: 620px;
+    padding-inline: 0;
+  }
+  .showcase-overview__product-image {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+.showcase-overview__card {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(10,42,94,0.08);
+  box-shadow: var(--shadow-md);
+}
+@media (min-width: 1024px) {
+  .showcase-overview__card {
+    max-width: 320px;
+  }
+}
+
+.showcase-overview__kicker {
+  font-size: var(--text-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.showcase-overview__title {
+  margin-top: var(--space-2);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.15;
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tight);
+}
+.showcase-overview__desc {
+  margin-top: var(--space-3);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-muted);
+}
+.showcase-overview__link {
+  margin-top: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-small);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  transition: color var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.showcase-overview__link:hover {
+  color: var(--color-primary-light);
+  transform: translateX(2px);
+}
+
+@media (min-width: 1024px) {
+  .showcase-overview__rail--left .showcase-overview__card::after,
+  .showcase-overview__rail--right .showcase-overview__card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: var(--space-6);
+    height: 1px;
+    background: rgba(227,6,19,0.35);
+  }
+  .showcase-overview__rail--left .showcase-overview__card::after {
+    right: calc(var(--space-6) * -1);
+  }
+  .showcase-overview__rail--right .showcase-overview__card::after {
+    left: calc(var(--space-6) * -1);
+  }
+
+  .showcase-overview__rail--left .showcase-overview__card::before,
+  .showcase-overview__rail--right .showcase-overview__card::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 5px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 8px rgba(227,6,19,0.12);
+  }
+  .showcase-overview__rail--left .showcase-overview__card::before {
+    right: calc((var(--space-6) * -1) - 10px);
+  }
+  .showcase-overview__rail--right .showcase-overview__card::before {
+    left: calc((var(--space-6) * -1) - 10px);
+  }
 }
 
 .showcase__features {
