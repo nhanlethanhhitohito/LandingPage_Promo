@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Design Tokens — Bitex Landing Page
+   Inspired by ASUS Zenfone 9 premium product page layout
+   ========================================================================== */
+
+:root {
+  /* ---------- Color: Primary (Bitex Navy DNA, dialed deep for premium) ---------- */
+  --color-primary:        #0A2A5E;
+  --color-primary-deep:   #061A3D;
+  --color-primary-light:  #2B5BA8;
+
+  /* ---------- Color: Accent (Bitex/Casio Red — use sparingly) ---------- */
+  --color-accent:         #E30613;
+  --color-accent-hover:   #B8050F;
+
+  /* ---------- Color: Neutral ---------- */
+  --color-bg:             #FFFFFF;
+  --color-bg-alt:         #F5F6F8;
+  --color-bg-tint:        #EEF0F4;          /* hero gradient bottom */
+  --color-bg-dark:        #0E0F12;          /* near-black for dark sections */
+  --color-bg-dark-2:      #1A1C20;          /* slightly lighter dark */
+  --color-text:           #0A0E1A;
+  --color-text-muted:     #5A6173;
+  --color-text-inverse:   #FFFFFF;
+  --color-text-inverse-muted: rgba(255,255,255,0.65);
+  --color-border:         #E4E6EB;
+  --color-border-dark:    rgba(255,255,255,0.10);
+
+  /* ---------- Hero gradient (light, sky → white) ---------- */
+  --gradient-hero-light: linear-gradient(180deg, #D5E1F0 0%, #EEF2F7 60%, #FFFFFF 100%);
+  --gradient-hero-dark:  linear-gradient(180deg, #0E0F12 0%, #1A1C20 100%);
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Inter', 'Be Vietnam Pro', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-body:    'Inter', 'Be Vietnam Pro', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  --text-hero:    clamp(40px, 6.4vw, 88px);
+  --text-h1:      clamp(32px, 4.2vw, 60px);
+  --text-h2:      clamp(28px, 3.0vw, 44px);
+  --text-h3:      clamp(20px, 1.6vw, 24px);
+  --text-eyebrow: 13px;
+  --text-body-lg: 18px;
+  --text-body:    16px;
+  --text-small:   14px;
+  --text-caption: 12px;
+
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  --lh-tight:     1.05;
+  --lh-heading:   1.15;
+  --lh-body:      1.6;
+
+  --ls-tight:     -0.025em;
+  --ls-normal:    0;
+  --ls-wide:      0.16em;
+
+  /* ---------- Container ---------- */
+  --container-max:    1280px;
+  --container-wide:   1440px;
+  --container-pad-d:  80px;
+  --container-pad-t:  48px;
+  --container-pad-m:  20px;
+
+  /* ---------- Section padding ---------- */
+  --section-py-d:     120px;
+  --section-py-t:     80px;
+  --section-py-m:     56px;
+
+  /* ---------- Spacing (8pt grid) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ---------- Radius ---------- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;
+
+  /* ---------- Elevation (light, never heavy) ---------- */
+  --shadow-sm:   0 1px 2px rgba(10,14,26,0.04);
+  --shadow-md:   0 4px 16px rgba(10,14,26,0.06);
+  --shadow-lg:   0 12px 32px rgba(10,14,26,0.10);
+  --shadow-product: 0 40px 60px -20px rgba(10,42,94,0.25);
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    180ms;
+  --dur-base:    250ms;
+  --dur-slow:    600ms;
+
+  /* ---------- Layout primitives ---------- */
+  --nav-h:       64px;
+  --nav-h-d:     72px;
+
+  /* ---------- Breakpoints (for JS reference) ---------- */
+  --bp-tablet:   768px;
+  --bp-desktop:  1024px;
+  --bp-wide:     1440px;
+}
+
+/* prefers-reduced-motion: respect user preference globally */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01ms;
+    --dur-base: 0.01ms;
+    --dur-slow: 0.01ms;
+  }
+}
