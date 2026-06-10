@@ -27,7 +27,7 @@
   --color-border-dark:    rgba(255,255,255,0.10);
 
   /* ---------- Hero gradient (light, sky → white) ---------- */
-  --gradient-hero-light: linear-gradient(180deg, #D5E1F0 0%, #EEF2F7 60%, #FFFFFF 100%);
+  --gradient-hero-light: linear-gradient(180deg, #B8CFE6 0%, #D9E4F1 45%, #F4F7FB 100%);
   --gradient-hero-dark:  linear-gradient(180deg, #0E0F12 0%, #1A1C20 100%);
 
   /* ---------- Typography ---------- */

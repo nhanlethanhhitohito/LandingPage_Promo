@@ -101,6 +101,19 @@
 }
 @media (min-width: 1024px) { .showcase { padding-block: var(--space-10); } }
 
+.showcase__head {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+.showcase__head .h-2 { margin-top: var(--space-3); }
+.showcase__head .lead { margin: var(--space-4) auto 0; }
+
+.showcase__features-head {
+  text-align: center;
+  margin-top: var(--space-9);
+  margin-bottom: var(--space-6);
+}
+
 .showcase__stage {
   position: relative;
   display: grid;
@@ -230,7 +243,7 @@
 .feature-block__visual svg,
 .feature-block__visual img { width: 100%; height: auto; }
 
-/* Inline stats inside dark performance block */
+/* Inline stats inside performance/feature block */
 .feature-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -238,19 +251,47 @@
   margin-top: var(--space-6);
 }
 @media (min-width: 768px) { .feature-stats { grid-template-columns: repeat(4, 1fr); } }
+.feature-stats--3 { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 768px) { .feature-stats--3 { grid-template-columns: repeat(3, 1fr); } }
+
+.feature-stat__value {
+  font-size: clamp(28px, 2.6vw, 36px);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--color-primary);
+}
+.feature-stat__value-sub {
+  font-size: 0.55em;
+  font-weight: var(--fw-semibold);
+  color: rgba(10,42,94,0.55);
+}
+.feature-stat__label {
+  margin-top: var(--space-2);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+.section--dark .feature-stat__value { color: #fff; }
+.section--dark .feature-stat__value-sub { color: rgba(255,255,255,0.55); }
+.section--dark .feature-stat__label { color: rgba(255,255,255,0.6); }
 
 /* ---------- 5. LIFESTYLE GRID (real-world usage) ---------- */
 .lifestyle {
   padding-block: var(--space-9);
 }
-.lifestyle__title {
+.lifestyle__head {
   text-align: center;
   margin-bottom: var(--space-7);
+  max-width: 720px;
+  margin-inline: auto;
+}
+.lifestyle__title {
+  margin-top: var(--space-3);
   font-size: clamp(24px, 2.6vw, 36px);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tight);
-  max-width: 22ch;
-  margin-inline: auto;
+  line-height: var(--lh-heading);
 }
 .lifestyle__grid {
   display: grid;
@@ -363,13 +404,40 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-7);
-  opacity: 0.6;
+  gap: var(--space-3);
 }
 .partners__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 18px;
   font-size: 13px;
   font-weight: var(--fw-semibold);
   letter-spacing: 0.02em;
+  color: var(--color-primary-deep);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.partners__item:hover {
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+.partners__item::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.partners__caption {
+  width: 100%;
+  text-align: center;
+  margin-bottom: var(--space-4);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
   color: var(--color-text-muted);
 }
 

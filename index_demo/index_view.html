@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casio Exploded View Demo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f1115;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .intro,
+    .outro {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .intro h1,
+    .outro h2 {
+      font-size: clamp(36px, 6vw, 80px);
+      line-height: 1.1;
+    }
+
+    .exploded-section {
+      height: 260vh;
+      position: relative;
+      background: radial-gradient(circle at center, #252b36 0%, #090b0f 70%);
+    }
+
+    .sticky-stage {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title {
+      position: absolute;
+      top: 60px;
+      left: 7vw;
+      z-index: 20;
+      max-width: 420px;
+    }
+
+    .title h2 {
+      font-size: clamp(32px, 5vw, 64px);
+      margin-bottom: 16px;
+    }
+
+    .title p {
+      color: #b9c0cc;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .device {
+      position: relative;
+      width: min(86vw, 1100px);
+      height: 620px;
+      perspective: 1200px;
+    }
+
+    .part {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 260px;
+      height: 520px;
+      border-radius: 32px;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      transition: transform 0.1s linear;
+    }
+
+    .back-cover {
+      background: linear-gradient(145deg, #20242b, #07080a);
+      border: 1px solid #333;
+      z-index: 1;
+    }
+
+    .frame {
+      background: linear-gradient(145deg, #17191f, #06070a);
+      border: 3px solid #2e333b;
+      z-index: 2;
+    }
+
+    .battery {
+      width: 90px;
+      height: 320px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f4a300, #a86600);
+      z-index: 3;
+    }
+
+    .battery::before {
+      content: "AAA";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      font-size: 34px;
+      font-weight: bold;
+      writing-mode: vertical-rl;
+    }
+
+    .mainboard {
+      background:
+        radial-gradient(circle at 70% 30%, #111 0 28px, transparent 30px),
+        linear-gradient(145deg, #104b33, #08251a);
+      border: 1px solid #1f8a5b;
+      z-index: 4;
+    }
+
+    .mainboard::before,
+    .mainboard::after {
+      content: "";
+      position: absolute;
+      background: #d69a2d;
+      border-radius: 8px;
+    }
+
+    .mainboard::before {
+      width: 90px;
+      height: 130px;
+      left: 40px;
+      top: 90px;
+    }
+
+    .mainboard::after {
+      width: 120px;
+      height: 90px;
+      right: 35px;
+      bottom: 120px;
+    }
+
+    .lcd {
+      width: 210px;
+      height: 120px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #d8e5df, #6d7774);
+      z-index: 5;
+    }
+
+    .keypad {
+      background:
+        radial-gradient(circle, #1c1f25 0 10px, transparent 11px) 20px 160px / 44px 44px,
+        linear-gradient(145deg, #252a32, #080a0d);
+      border: 1px solid #3a404a;
+      z-index: 6;
+    }
+
+    .front-cover {
+      background: linear-gradient(145deg, #1d2430, #07090d);
+      border: 1px solid #46515f;
+      z-index: 7;
+    }
+
+    .front-cover::before {
+      content: "CASIO";
+      position: absolute;
+      top: 34px;
+      left: 34px;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .front-cover::after {
+      content: "";
+      position: absolute;
+      top: 90px;
+      left: 30px;
+      right: 30px;
+      height: 85px;
+      border-radius: 10px;
+      background: #b8c8c0;
+    }
+
+    .label {
+      position: absolute;
+      bottom: 55px;
+      right: 7vw;
+      color: #8f98a8;
+      font-size: 14px;
+      letter-spacing: 1px;
+      z-index: 30;
+    }
+
+    @media (max-width: 768px) {
+      .device {
+        transform: scale(0.7);
+      }
+
+      .title {
+        top: 32px;
+        left: 24px;
+        right: 24px;
+      }
+
+      .title p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="intro">
+    <h1>Casio Exploded View<br />Scroll Animation</h1>
+  </section>
+
+  <section class="exploded-section" id="exploded">
+    <div class="sticky-stage">
+      <div class="title">
+        <h2>Bung linh kiện</h2>
+        <p>
+          Demo cấp độ 1: dùng nhiều layer 2D giả lập chiều sâu,
+          không cần Three.js hay model 3D realtime.
+        </p>
+      </div>
+
+      <div class="device">
+        <div class="part back-cover"></div>
+        <div class="part frame"></div>
+        <div class="part battery"></div>
+        <div class="part mainboard"></div>
+        <div class="part lcd"></div>
+        <div class="part keypad"></div>
+        <div class="part front-cover"></div>
+      </div>
+
+      <div class="label">FAKE 3D / PNG LAYER STYLE</div>
+    </div>
+  </section>
+
+  <section class="outro">
+    <h2>Kết thúc hiệu ứng</h2>
+  </section>
+
+  <script>
+    const section = document.querySelector("#exploded");
+
+    const parts = [
+      {
+        el: document.querySelector(".back-cover"),
+        x: -520,
+        y: 0,
+        scale: 0.95,
+        rotate: -2
+      },
+      {
+        el: document.querySelector(".frame"),
+        x: -330,
+        y: 0,
+        scale: 0.98,
+        rotate: -1
+      },
+      {
+        el: document.querySelector(".battery"),
+        x: -130,
+        y: 0,
+        scale: 1,
+        rotate: 0
+      },
+      {
+        el: document.querySelector(".mainboard"),
+        x: 120,
+        y: 0,
+        scale: 1,
+        rotate: 0
+      },
+      {
+        el: document.querySelector(".lcd"),
+        x: 330,
+        y: -110,
+        scale: 1,
+        rotate: 1
+      },
+      {
+        el: document.querySelector(".keypad"),
+        x: 500,
+        y: 0,
+        scale: 1,
+        rotate: 2
+      },
+      {
+        el: document.querySelector(".front-cover"),
+        x: 700,
+        y: 0,
+        scale: 1.02,
+        rotate: 3
+      }
+    ];
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function animateExplodedView() {
+      const rect = section.getBoundingClientRect();
+      const scrollDistance = section.offsetHeight - window.innerHeight;
+
+      let progress = -rect.top / scrollDistance;
+      progress = clamp(progress, 0, 1);
+
+      parts.forEach((part) => {
+        const x = part.x * progress;
+        const y = part.y * progress;
+        const scale = 1 + (part.scale - 1) * progress;
+        const rotate = part.rotate * progress;
+
+        part.el.style.transform =
+          `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) scale(${scale}) rotate(${rotate}deg)`;
+      });
+    }
+
+    window.addEventListener("scroll", animateExplodedView);
+    window.addEventListener("resize", animateExplodedView);
+    animateExplodedView();
+  </script>
+
+</body>
+</html>

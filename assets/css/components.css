@@ -184,6 +184,7 @@
 .section--dark .btn--ghost:hover { background: #fff; color: var(--color-text); }
 
 .btn--lg { padding: 18px 36px; font-size: 16px; }
+.btn--sm { padding: 10px 20px; font-size: 13px; min-height: 40px; }
 
 .btn--link {
   background: none;
