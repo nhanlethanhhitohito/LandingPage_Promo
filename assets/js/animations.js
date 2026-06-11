@@ -103,6 +103,56 @@ export function initParallax() {
   }, { passive: true });
 }
 
+/* ---------- Calc explosion (reverse-assemble) — scrub linked to scroll ----------
+   Replicates ASUS .phone_explosion (GSAP ScrollTrigger: start "top 60%", end
+   "bottom 80%", scrub). Drives a CSS custom property --p on the stage.
+*/
+export function initExplosion() {
+  const stages = document.querySelectorAll('[data-explosion]');
+  if (!stages.length) return;
+
+  if (reduced) {
+    stages.forEach(s => s.style.setProperty('--p', '1'));
+    return;
+  }
+
+  const visible = new Set();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) visible.add(e.target);
+      else visible.delete(e.target);
+    });
+  }, { rootMargin: '40% 0px 40% 0px', threshold: 0 });
+
+  stages.forEach(s => io.observe(s));
+
+  let ticking = false;
+  const compute = () => {
+    const vh = window.innerHeight;
+    visible.forEach(stage => {
+      const rect = stage.getBoundingClientRect();
+      const startY = 0.60 * vh;
+      const endTopY = 0.80 * vh - rect.height;
+      const denom = startY - endTopY;
+      if (denom <= 0) { stage.style.setProperty('--p', '1'); return; }
+      const p = Math.max(0, Math.min(1, (startY - rect.top) / denom));
+      stage.style.setProperty('--p', p.toFixed(3));
+    });
+    ticking = false;
+  };
+
+  const schedule = () => {
+    if (!ticking) {
+      requestAnimationFrame(compute);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  compute();
+}
+
 /* ---------- Color picker on showcase ---------- */
 export function initColorPicker() {
   const dots = document.querySelectorAll('.color-dot');
