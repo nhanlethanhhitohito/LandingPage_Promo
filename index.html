@@ -282,45 +282,69 @@
           </p>
         </header>
 
-        <div class="calc-explosion__stage" data-explosion>
-          <img class="calc-explosion__layer cal-0" src="assets/img/product/Front_noGlass_Cal.png" alt="Mặt trước Casio fx-880BTG — kính bảo vệ" loading="lazy" decoding="async" />
-          <img class="calc-explosion__layer cal-1" src="assets/img/product/Screen_Cal.png" alt="Khung phím bấm fx-880BTG" loading="lazy" decoding="async" />
-          <img class="calc-explosion__layer cal-2" src="assets/img/product/Cpu_Cal.png" alt="Bo mạch CPU thế hệ mới của fx-880BTG" loading="lazy" decoding="async" />
-          <img class="calc-explosion__layer cal-3" src="assets/img/product/Back_Cal.png" alt="Vỏ sau fx-880BTG" loading="lazy" decoding="async" />
-          <img class="calc-explosion__layer cal-ori" src="assets/img/product/Front_Cal.png" alt="Casio fx-880BTG ClassWiz hoàn chỉnh" />
+        <div class="calc-explosion__stage-shell" data-reveal data-reveal-delay="100">
+          <div class="calc-explosion__stage" data-explosion>
+            <img
+              class="calc-explosion__layer cal-0"
+              src="assets/img/product/580/rota_2/Front_Front_noGlass_rota.png"
+              data-part="front-frame"
+              tabindex="0"
+              alt="Khung mặt trước không kính của Casio fx-880BTG"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="calc-explosion__layer cal-1"
+              src="assets/img/product/580/rota_2/Rubber_Key_Mat_Front_rota.png"
+              data-part="keypad"
+              tabindex="0"
+              alt="Tấm cao su phím bấm của Casio fx-880BTG"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="calc-explosion__layer cal-1 cal-battery"
+              src="assets/img/product/580/rota_2/AAA_Battery_rota.png"
+              data-part="battery"
+              tabindex="0"
+              alt="Pin của Casio fx-880BTG"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="calc-explosion__layer cal-2"
+              src="assets/img/product/580/rota_2/LCD_And_Keypad_PCB_Rota.png"
+              data-part="lcd-pcb"
+              tabindex="0"
+              alt="Module LCD và bo mạch PCB của Casio fx-880BTG"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="calc-explosion__layer cal-3"
+              src="assets/img/product/580/rota_2/Back_Cover_Inner_rota.png"
+              data-part="back-cover"
+              tabindex="0"
+              alt="Vỏ sau bên trong của Casio fx-880BTG"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="calc-explosion__layer cal-ori"
+              src="assets/img/product/580/rota_2/Front_Assembly_fix_aa.png"
+              alt="Casio fx-880BTG ClassWiz hoàn chỉnh ở góc nhìn nghiêng"
+              decoding="async"
+            />
+          </div>
         </div>
 
         <ul class="calc-explosion__legend" aria-label="Chú thích linh kiện" data-reveal data-reveal-delay="300">
-          <li><span class="legend-dot legend-dot--0"></span>Mặt kính bảo vệ</li>
-          <li><span class="legend-dot legend-dot--1"></span>Khung phím bấm</li>
-          <li><span class="legend-dot legend-dot--2"></span>Bo mạch CPU mới</li>
-          <li><span class="legend-dot legend-dot--3"></span>Vỏ sau bền chắc</li>
+          <li><span class="legend-dot legend-dot--0" data-part-link="front-frame"></span>Khung mặt trước</li>
+          <li><span class="legend-dot legend-dot--pin" data-part-link="battery"></span>Pin AAA</li>
+          <li><span class="legend-dot legend-dot--1" data-part-link="keypad"></span>Cụm phím cao su</li>
+          <li><span class="legend-dot legend-dot--2" data-part-link="lcd-pcb"></span>LCD + bo mạch</li>
+          <li><span class="legend-dot legend-dot--3" data-part-link="back-cover"></span>Vỏ sau bảo vệ</li>
         </ul>
-      </div>
-    </section>
-
-    <!-- ====== 4.6. TEASER — dẫn sang exploded-view.html ====== -->
-    <section class="rota-teaser" id="rota-teaser" aria-label="Khám phá góc nhìn 360°">
-      <div class="container">
-        <div class="rota-teaser__inner">
-          <div class="rota-teaser__copy">
-            <p class="eyebrow" data-reveal>Góc nhìn 360°</p>
-            <h2 class="rota-teaser__title" data-reveal data-reveal-delay="100">Mạnh hơn về góc nhìn.</h2>
-            <p class="rota-teaser__desc" data-reveal data-reveal-delay="200">
-              Cùng chiếc fx-580VN X — quan sát từ góc nghiêng, thấy từng linh kiện trải ra khi cuộn. Trải nghiệm exploded view chuyên sâu trong một trang riêng.
-            </p>
-            <a class="rota-teaser__btn" href="exploded-view.html" data-reveal data-reveal-delay="300">
-              <span>Khám phá góc nhìn 360°</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-          <a class="rota-teaser__preview" href="exploded-view.html" data-reveal data-reveal-delay="200" aria-label="Mở góc nhìn 360°">
-            <img src="assets/img/product/580/rota_2/ex_view/Casio fx580_rota_full.png" alt="Casio fx-580VN X — góc nghiêng" loading="lazy" decoding="async" />
-            <span class="rota-teaser__preview-hint" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </a>
-        </div>
       </div>
     </section>
 

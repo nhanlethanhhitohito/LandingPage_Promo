@@ -362,9 +362,8 @@
 @media (min-width: 1024px) { .showcase__features { gap: var(--space-7); } }
 
 /* ==========================================================================
-   4.5. CALC EXPLOSION — Reverse-assemble exploded view
-   Cảm hứng: ASUS Zenfone 9 .phone_explosion (top 60% → bottom 80%, scrub)
-   Implementation: vanilla CSS var --p (0→1) driven by JS scroll handler.
+   4.5. CALC EXPLOSION — Reverse-assemble exploded view (rota_2 images)
+   Scrubs --p (0→1) via JS. Stage shell provides decorative background.
    ========================================================================== */
 .calc-explosion {
   position: relative;
@@ -401,210 +400,152 @@
 
 .calc-explosion__stage {
   --p: 0;
-  --spread: 70px;
+  --spread: 64px;
   --layer-idle-opacity: 0.08;
   --layer-reveal-multiplier: 7;
   position: relative;
-  margin-inline: auto;
   width: 100%;
-  max-width: 1100px;
-  height: clamp(320px, 56vw, 600px);
+  max-width: 1080px;
+  height: clamp(320px, 68vw, 680px);
+  margin-inline: auto;
 }
-@media (min-width: 768px)  { .calc-explosion__stage { --spread: 130px; } }
-@media (min-width: 1024px) { .calc-explosion__stage { --spread: 200px; } }
+@media (min-width: 768px) {
+  .calc-explosion__stage {
+    --spread: 128px;
+    height: clamp(380px, 58vw, 700px);
+  }
+}
+@media (min-width: 1024px) {
+  .calc-explosion__stage { --spread: 212px; }
+}
 
 .calc-explosion__layer {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 92%;
   width: auto;
+  height: 92%;
   max-width: none;
-  pointer-events: none;
   user-select: none;
+  pointer-events: none;
   will-change: transform, opacity;
   transform: translate(-50%, -50%);
+  transition:
+    filter 300ms var(--ease-out),
+    opacity 300ms var(--ease-out);
 }
 
-/* Initial state (p=0): tất cả layer chồng lên nhau ở center, ori đè trên cùng.
-   Final state (p=1): 4 layer trải đều ra hai bên, ori fade hoàn toàn. */
+.calc-explosion__stage[data-hover-ready="true"] .calc-explosion__layer[data-part] {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.calc-explosion__layer[data-part].is-linked-active,
+.calc-explosion__layer[data-part]:hover,
+.calc-explosion__layer[data-part]:focus-visible {
+  filter: drop-shadow(0 0 calc(var(--p) * 18px) rgba(227, 6, 19, calc(var(--p) * 0.34)));
+}
+
+.calc-explosion__layer:focus-visible {
+  outline: none;
+}
+
 .cal-ori {
   z-index: 20;
-  transform: translate(-50%, -50%);
-  opacity: calc(1 - var(--p) * 3);
+  opacity: calc(1 - var(--p) * 10);
 }
+
 .cal-0 {
-  z-index: 12;
+  z-index: 14;
   transform: translate(calc(-50% + var(--spread) * var(--p) * -1.5), -50%);
   opacity: clamp(var(--layer-idle-opacity), calc(var(--p) * var(--layer-reveal-multiplier)), 1);
 }
-/* cal-1 = Screen_Cal — module LCD, không phải full body.
-   Đặt nhỏ hơn và lệch lên trên (~22% from top of stage) để khớp với
-   vị trí LCD thực trên Casio. z-index cao hơn chassis để hiện như
-   "màn hình nằm trên mặt máy" khi assembled. */
+
 .cal-1 {
-  z-index: 10;
-  top: 27%;
-  height: 30%;
+  z-index: 12;
+  top: 60%;
+  height: 56%;
   transform: translate(calc(-50% + var(--spread) * var(--p) * -0.5), -50%);
   opacity: clamp(var(--layer-idle-opacity), calc(var(--p) * var(--layer-reveal-multiplier)), 1);
 }
-@media (max-width: 767px) {
-  .cal-1 { height: 26%; top: 24%; }
+
+.cal-battery {
+  z-index: 13;
+  top: 11.2%;
+  left: 50%;
+  height: 11.5%;
 }
+
 .cal-2 {
-  z-index: 8;
-  transform: translate(calc(-50% + var(--spread) * var(--p) *  0.5), -50%);
-  filter: drop-shadow(0 0 calc(var(--p) * 18px) rgba(227, 6, 19, calc(var(--p) * 0.32)));
-  opacity: clamp(var(--layer-idle-opacity), calc(var(--p) * var(--layer-reveal-multiplier)), 1);
-}
-.cal-3 {
-  z-index: 6;
-  transform: translate(calc(-50% + var(--spread) * var(--p) *  1.5), -50%);
+  z-index: 10;
+  top: 49.8%;
+  height: 78.8%;
+  transform: translate(calc(-50% + var(--spread) * var(--p) * 0.5), -50%);
   opacity: clamp(var(--layer-idle-opacity), calc(var(--p) * var(--layer-reveal-multiplier)), 1);
 }
 
+.cal-3 {
+  z-index: 8;
+  transform: translate(calc(-50% + var(--spread) * var(--p) * 1.5), -50%);
+  opacity: clamp(var(--layer-idle-opacity), calc(var(--p) * var(--layer-reveal-multiplier)), 1);
+}
+
+@media (max-width: 767px) {
+  .cal-1 { top: 62%; height: 50%; }
+  .cal-battery { top: 10.3%; height: 12.5%; }
+}
+
 .calc-explosion__legend {
+  --p: 1;
   margin: var(--space-7) auto 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-5);
+  gap: 14px 24px;
+  max-width: 880px;
   font-size: 13px;
   color: var(--color-text-muted);
 }
+
 .calc-explosion__legend li {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  transition: color 300ms var(--ease-out);
 }
+
 .legend-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--color-primary);
+  transition:
+    filter 300ms var(--ease-out),
+    box-shadow 300ms var(--ease-out),
+    background-color 300ms var(--ease-out);
 }
+
 .legend-dot--2 {
   background: var(--color-accent);
   box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.14);
 }
 
+.calc-explosion__legend li.is-linked-active {
+  color: var(--color-text);
+}
+
+.calc-explosion__legend li.is-linked-active .legend-dot,
+.calc-explosion__legend li:hover .legend-dot,
+.calc-explosion__legend li:focus-within .legend-dot {
+  filter: drop-shadow(0 0 18px rgba(227, 6, 19, 0.34));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .calc-explosion__stage { --p: 1; }
   .calc-explosion__layer { transition: none; }
-}
-
-/* ==========================================================================
-   4.6. ROTA TEASER — dẫn sang exploded-view.html
-   ========================================================================== */
-.rota-teaser {
-  background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary) 100%);
-  color: #fff;
-  padding-block: var(--space-9);
-  position: relative;
-  overflow: hidden;
-}
-@media (min-width: 1024px) { .rota-teaser { padding-block: var(--space-10); } }
-.rota-teaser::before {
-  content: "";
-  position: absolute;
-  inset: -40% -10% auto auto;
-  width: 60%; aspect-ratio: 1;
-  background: radial-gradient(closest-side, rgba(227,6,19,0.18), transparent);
-  pointer-events: none;
-}
-
-.rota-teaser__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-7);
-  align-items: center;
-  position: relative;
-}
-@media (min-width: 1024px) {
-  .rota-teaser__inner {
-    grid-template-columns: 1fr 1.1fr;
-    gap: var(--space-9);
-  }
-}
-
-.rota-teaser__copy { order: 0; }
-.rota-teaser__copy .eyebrow { color: rgba(255,255,255,0.7); }
-
-.rota-teaser__title {
-  margin-top: var(--space-3);
-  font-size: clamp(28px, 3.4vw, 48px);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-tight);
-  line-height: 1.1;
-  color: #fff;
-}
-.rota-teaser__desc {
-  margin-top: var(--space-4);
-  font-size: 16px;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.75);
-  max-width: 52ch;
-}
-.rota-teaser__btn {
-  margin-top: var(--space-6);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 28px;
-  background: #fff;
-  color: var(--color-primary-deep);
-  border-radius: var(--radius-pill);
-  font-weight: var(--fw-semibold);
-  font-size: 15px;
-  transition: transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
-  min-height: 48px;
-}
-.rota-teaser__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.22);
-}
-.rota-teaser__btn svg { transition: transform var(--dur-fast) ease; }
-.rota-teaser__btn:hover svg { transform: translateX(4px); }
-
-.rota-teaser__preview {
-  position: relative;
-  display: block;
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 60%),
-    rgba(255,255,255,0.04);
-  padding: var(--space-5);
-  overflow: hidden;
-  transition: transform var(--dur-base) var(--ease-out);
-  aspect-ratio: 16 / 11;
-}
-@media (min-width: 1024px) { .rota-teaser__preview { aspect-ratio: 16 / 10; } }
-.rota-teaser__preview img {
-  width: 100%; height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.45));
-  transition: transform var(--dur-base) var(--ease-out);
-}
-.rota-teaser__preview:hover { transform: translateY(-4px); }
-.rota-teaser__preview:hover img { transform: scale(1.03); }
-
-.rota-teaser__preview-hint {
-  position: absolute;
-  right: var(--space-4);
-  bottom: var(--space-4);
-  width: 44px; height: 44px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--color-accent);
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(227,6,19,0.45);
-  transition: transform var(--dur-fast) ease;
-}
-.rota-teaser__preview:hover .rota-teaser__preview-hint {
-  transform: translateX(4px);
 }
 
 /* ---------- 3. USP STRIP (numbers — count-up) ---------- */
