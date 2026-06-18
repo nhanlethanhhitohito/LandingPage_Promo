@@ -112,7 +112,10 @@ export function initExplosion() {
   if (!stages.length) return;
 
   if (reduced) {
-    stages.forEach(s => s.style.setProperty('--p', '1'));
+    stages.forEach(s => {
+      s.style.setProperty('--p', '1');
+      s.dataset.hoverReady = 'true';
+    });
     return;
   }
 
@@ -137,6 +140,7 @@ export function initExplosion() {
       if (denom <= 0) { stage.style.setProperty('--p', '1'); return; }
       const p = Math.max(0, Math.min(1, (startY - rect.top) / denom));
       stage.style.setProperty('--p', p.toFixed(3));
+      stage.dataset.hoverReady = p > 0.35 ? 'true' : 'false';
     });
     ticking = false;
   };
@@ -151,6 +155,53 @@ export function initExplosion() {
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule);
   compute();
+}
+
+/* ---------- Explosion hover-link: layer ↔ legend dot cross-highlight ---------- */
+export function initExplosionHoverLink() {
+  const layers = document.querySelectorAll('.calc-explosion__layer[data-part]');
+  const legendDots = document.querySelectorAll('.legend-dot[data-part-link]');
+  if (!layers.length || !legendDots.length) return;
+
+  const legendItems = Array.from(legendDots)
+    .map(dot => ({
+      dot,
+      item: dot.closest('li'),
+      partName: dot.dataset.partLink
+    }))
+    .filter(entry => entry.item && entry.partName);
+
+  const clearActive = () => {
+    layers.forEach(l => l.classList.remove('is-linked-active'));
+    legendItems.forEach(({ dot, item }) => {
+      dot.classList.remove('is-linked-active');
+      item.classList.remove('is-linked-active');
+    });
+  };
+
+  const activate = (partName) => {
+    const layer = document.querySelector(`.calc-explosion__layer[data-part="${partName}"]`);
+    const legend = legendItems.find(e => e.partName === partName);
+    layer?.classList.add('is-linked-active');
+    if (legend) {
+      legend.dot.classList.add('is-linked-active');
+      legend.item.classList.add('is-linked-active');
+    }
+  };
+
+  const bind = (node, partName) => {
+    node.addEventListener('pointerenter', () => { clearActive(); activate(partName); });
+    node.addEventListener('pointerleave', clearActive);
+    node.addEventListener('focus', () => { clearActive(); activate(partName); });
+    node.addEventListener('blur', clearActive);
+  };
+
+  layers.forEach(layer => {
+    const part = layer.dataset.part;
+    if (part) bind(layer, part);
+  });
+
+  legendItems.forEach(({ item, partName }) => bind(item, partName));
 }
 
 /* ---------- Color picker on showcase ---------- */
