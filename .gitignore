@@ -1,8 +1,4 @@
 # Ignore Claude-related files
-CLAUDE.md
-AGENTS.md
-GEMINI.md
-PROGRESS.md
 .claude/
 .github/
 bitex-static.err.log
@@ -14,3 +10,4 @@ ref_asus.png
 ref_aorus.png
 ref_Bitex.png
 ref_giga.png
+*.md

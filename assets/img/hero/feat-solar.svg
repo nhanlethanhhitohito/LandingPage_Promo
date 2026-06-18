@@ -1,32 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Pin năng lượng mặt trời">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Pin năng lượng mặt trời + pin dự phòng">
   <defs>
     <linearGradient id="bgS" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFF7E5"/>
-      <stop offset="1" stop-color="#FFE9B0"/>
+      <stop offset="0" stop-color="#0E1A36"/>
+      <stop offset="1" stop-color="#061A3D"/>
     </linearGradient>
-    <radialGradient id="sunG" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#FFD66B"/>
-      <stop offset="1" stop-color="#F2A93B"/>
+    <linearGradient id="battG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E30613"/>
+      <stop offset="1" stop-color="#FF3B47"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgba(255,255,255,0.18)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
     </radialGradient>
   </defs>
   <rect width="640" height="480" rx="16" fill="url(#bgS)"/>
 
-  <!-- Sun rays -->
-  <g stroke="#F2A93B" stroke-width="3" stroke-linecap="round" opacity="0.6">
-    <line x1="180" y1="60"  x2="180" y2="100"/>
-    <line x1="180" y1="320" x2="180" y2="360"/>
-    <line x1="40"  y1="210" x2="80"  y2="210"/>
-    <line x1="280" y1="210" x2="320" y2="210"/>
-    <line x1="82"  y1="112" x2="112" y2="142"/>
-    <line x1="248" y1="278" x2="278" y2="308"/>
-    <line x1="82"  y1="308" x2="112" y2="278"/>
-    <line x1="248" y1="142" x2="278" y2="112"/>
+  <!-- Sun glow halo + outline -->
+  <circle cx="180" cy="210" r="120" fill="url(#sunGlow)"/>
+  <g stroke="rgba(255,255,255,0.55)" stroke-width="2.5" stroke-linecap="round">
+    <circle cx="180" cy="210" r="56" fill="none"/>
+    <line x1="180" y1="100" x2="180" y2="130"/>
+    <line x1="180" y1="290" x2="180" y2="320"/>
+    <line x1="70"  y1="210" x2="100" y2="210"/>
+    <line x1="260" y1="210" x2="290" y2="210"/>
+    <line x1="100" y1="130" x2="122" y2="152"/>
+    <line x1="238" y1="268" x2="260" y2="290"/>
+    <line x1="100" y1="290" x2="122" y2="268"/>
+    <line x1="238" y1="152" x2="260" y2="130"/>
   </g>
-  <circle cx="180" cy="210" r="60" fill="url(#sunG)"/>
 
-  <!-- Solar panel strip with cells -->
+  <!-- Solar panel strip -->
   <g transform="translate(360,150)">
-    <rect width="220" height="60" rx="6" fill="#0A1B40"/>
+    <rect width="220" height="60" rx="6" fill="#0A1B40" stroke="rgba(255,255,255,0.15)"/>
     <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
       <line x1="0" y1="30" x2="220" y2="30"/>
       <line x1="44"  y1="0" x2="44"  y2="60"/>
@@ -38,14 +43,18 @@
 
   <!-- Battery indicator -->
   <g transform="translate(360,260)">
-    <rect width="180" height="56" rx="10" fill="#0A2A5E"/>
-    <rect x="180" y="18" width="8" height="20" rx="2" fill="#0A2A5E"/>
-    <rect x="8" y="8" width="164" height="40" rx="6" fill="#2DD27D"/>
+    <rect width="180" height="56" rx="10" fill="#0A0E1A" stroke="rgba(255,255,255,0.15)"/>
+    <rect x="180" y="18" width="8" height="20" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="8" y="8" width="164" height="40" rx="6" fill="url(#battG)"/>
     <text x="90" y="36" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">100%</text>
   </g>
 
-  <g fill="rgba(10,42,94,0.55)" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.1em">
-    <text x="60" y="60">SOLAR + BATTERY</text>
+  <!-- Connecting flow line -->
+  <path d="M 246 210 Q 320 210, 360 180" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/>
+  <path d="M 470 215 L 470 255" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/>
+
+  <g fill="rgba(255,255,255,0.5)" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.1em">
+    <text x="60" y="60">SOLAR + BACKUP</text>
   </g>
-  <text x="60" y="430" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" fill="#0A2A5E">Pin năng lượng mặt trời • Hoạt động kể cả khi pin yếu</text>
+  <text x="60" y="430" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="rgba(255,255,255,0.8)">Năng lượng kép • Hoạt động ổn định mọi điều kiện thi cử</text>
 </svg>

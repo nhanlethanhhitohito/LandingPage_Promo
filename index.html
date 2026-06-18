@@ -41,7 +41,7 @@
       </nav>
 
       <div class="nav__actions">
-        <a href="#buy" class="btn btn--dark" style="padding:10px 20px; font-size:13px;">Mua ngay</a>
+        <a href="#buy" class="btn btn--dark btn--sm">Mua ngay</a>
         <button class="nav__hamburger" id="hamburger" aria-label="Mở menu" aria-expanded="false">
           <span></span>
         </button>
@@ -68,7 +68,7 @@
       <div class="container">
         <div class="hero__grid">
           <div class="hero__media" data-reveal>
-            <img class="hero__product" src="assets/img/product/calculator-navy.svg" alt="Casio fx-880BTG ClassWiz màu Navy — máy tính khoa học cao cấp do BITEX phân phối chính thức." width="460" height="700" />
+            <img class="hero__product" src="assets/img/product/fx-580vn_x_black.png" alt="Casio fx-880BTG ClassWiz màu Navy — máy tính khoa học cao cấp do BITEX phân phối chính thức." width="460" height="700" />
           </div>
 
           <div class="hero__copy">
@@ -129,12 +129,21 @@
     <!-- ====== 3. PRODUCT SHOWCASE (color variants) ====== -->
     <section class="showcase" id="showcase" aria-label="Tổng quan sản phẩm">
       <div class="container">
+        <header class="showcase__head" data-reveal>
+          <p class="eyebrow">Thiết kế</p>
+          <h2 class="h-2">Chọn phong cách của bạn.</h2>
+          <p class="lead">Hai phiên bản màu — cùng một sức mạnh tính toán. Thân máy bền vững, phím nhấn êm, sẵn sàng đi cùng bạn từ THPT đến đại học.</p>
+        </header>
+
         <div class="showcase__stage" data-reveal>
           <div class="showcase__product">
-            <img src="assets/img/product/calculator-black.svg" alt="Casio fx-880BTG ClassWiz màu đen" width="200" height="280" />
+            <img src="assets/img/product/fx-580vn_x_black.png" alt="Casio fx-880BTG ClassWiz màu đen" width="200" height="280" />
           </div>
           <div class="showcase__product">
-            <img src="assets/img/product/calculator-navy.svg" alt="Casio fx-880BTG ClassWiz màu navy" width="200" height="280" />
+            <img src="assets/img/product/fx-580vn_x_blue.png" alt="Casio fx-880BTG ClassWiz màu navy" width="200" height="280" />
+          </div>
+          <div class="showcase__product">
+            <img src="assets/img/product/fx-580vn_x_pink.png" alt="Casio fx-880BTG ClassWiz màu hồng" width="200" height="280" />
           </div>
         </div>
 
@@ -146,9 +155,68 @@
             <span class="color-dot__inner" style="background:#0A2A5E;"></span>
           </button>
           <button class="color-dot" aria-label="Bạc" data-color="silver">
-            <span class="color-dot__inner" style="background:#C0C5CE;"></span>
+            <span class="color-dot__inner" style="background:#ff00ff;"></span>
           </button>
         </div>
+
+        <section class="showcase__overview" aria-labelledby="showcase-overview-title">
+          <div class="showcase__overview-head">
+            <p class="eyebrow" data-reveal>Tổng quan</p>
+            <h2 class="h-2" id="showcase-overview-title" data-reveal data-reveal-delay="100">Nhìn gần hơn. Hiểu nhanh hơn.</h2>
+            <!-- <p class="lead" data-reveal data-reveal-delay="200">
+              Bốn chi tiết quan trọng trên fx-880BTG quyết định trải nghiệm học tập hằng ngày, từ màn hình, bàn phím đến kết nối và nguồn năng lượng.
+            </p> -->
+          </div>
+
+          <div class="showcase-overview">
+            <div class="showcase-overview__rail showcase-overview__rail--left">
+              <article class="showcase-overview__card" data-reveal data-reveal-delay="100">
+                <p class="showcase-overview__kicker">Hiển thị</p>
+                <h3 class="showcase-overview__title">High-Resolution 192×63 px</h3>
+                <p class="showcase-overview__desc">Công thức, phân số và ma trận hiện rõ như trong sách giáo khoa.</p>
+                <a class="showcase-overview__link" href="#feat-display">Xem phần hiển thị →</a>
+              </article>
+
+              <article class="showcase-overview__card" data-reveal data-reveal-delay="200">
+                <p class="showcase-overview__kicker">Năng lượng</p>
+                <h3 class="showcase-overview__title">Solar + pin dự phòng</h3>
+                <p class="showcase-overview__desc">Nguồn kép ổn định cho lịch học dài, ôn thi và sử dụng cường độ cao.</p>
+                <a class="showcase-overview__link" href="#feat-solar">Xem phần độ bền →</a>
+              </article>
+            </div>
+
+            <div class="showcase-overview__product-wrap" data-reveal data-reveal-delay="300">
+              <img
+                class="showcase-overview__product-image"
+                src="assets/img/product/fx-580vn_x_black.png"
+                alt="Cận cảnh Casio fx-880BTG ClassWiz với các điểm nổi bật về màn hình, phím bấm, kết nối QR và nguồn năng lượng kép."
+                width="320"
+                height="448"
+              />
+            </div>
+
+            <div class="showcase-overview__rail showcase-overview__rail--right">
+              <article class="showcase-overview__card" data-reveal data-reveal-delay="400">
+                <p class="showcase-overview__kicker">Tính toán</p>
+                <h3 class="showcase-overview__title">Cụm phím khoa học trực quan</h3>
+                <p class="showcase-overview__desc">Bố cục quen thuộc, menu icon rõ ràng và sẵn sàng cho 580+ hàm tích hợp.</p>
+                <a class="showcase-overview__link" href="#feat-functions">Xem phần tính toán →</a>
+              </article>
+
+              <article class="showcase-overview__card" data-reveal data-reveal-delay="500">
+                <p class="showcase-overview__kicker">Kết nối</p>
+                <h3 class="showcase-overview__title">QR mở thẳng ClassWiz App</h3>
+                <p class="showcase-overview__desc">Chia sẻ kết quả, đồ thị và lịch sử bài làm chỉ sau một lần quét.</p>
+                <a class="showcase-overview__link" href="#feat-app">Xem phần kết nối →</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <header class="showcase__features-head" data-reveal>
+          <p class="eyebrow">Khám phá</p>
+          <h2 class="h-2" style="margin-top:12px;">Ba thế mạnh nổi bật.</h2>
+        </header>
 
         <div class="showcase__features">
           <a href="#feat-functions" class="feat-card" data-reveal data-reveal-delay="100">
@@ -203,6 +271,59 @@
       </div>
     </section>
 
+    <!-- ====== 4.5. ANATOMY — Exploded view (reverse-assemble) ====== -->
+    <section class="calc-explosion" id="anatomy" aria-label="Cấu tạo bên trong">
+      <div class="container">
+        <header class="calc-explosion__head">
+          <p class="eyebrow" data-reveal>Cấu trúc</p>
+          <h2 class="calc-explosion__title" data-reveal data-reveal-delay="100">Mạnh hơn từ bên trong.</h2>
+          <p class="calc-explosion__lead" data-reveal data-reveal-delay="200">
+            Lớp kính bảo vệ, khung phím bấm, bo mạch CPU thế hệ mới và pin nguồn kép — gói gọn trong vỏ máy mỏng. Cuộn xuống để xem từng lớp tách rời.
+          </p>
+        </header>
+
+        <div class="calc-explosion__stage" data-explosion>
+          <img class="calc-explosion__layer cal-0" src="assets/img/product/Front_noGlass_Cal.png" alt="Mặt trước Casio fx-880BTG — kính bảo vệ" loading="lazy" decoding="async" />
+          <img class="calc-explosion__layer cal-1" src="assets/img/product/Screen_Cal.png" alt="Khung phím bấm fx-880BTG" loading="lazy" decoding="async" />
+          <img class="calc-explosion__layer cal-2" src="assets/img/product/Cpu_Cal.png" alt="Bo mạch CPU thế hệ mới của fx-880BTG" loading="lazy" decoding="async" />
+          <img class="calc-explosion__layer cal-3" src="assets/img/product/Back_Cal.png" alt="Vỏ sau fx-880BTG" loading="lazy" decoding="async" />
+          <img class="calc-explosion__layer cal-ori" src="assets/img/product/Front_Cal.png" alt="Casio fx-880BTG ClassWiz hoàn chỉnh" />
+        </div>
+
+        <ul class="calc-explosion__legend" aria-label="Chú thích linh kiện" data-reveal data-reveal-delay="300">
+          <li><span class="legend-dot legend-dot--0"></span>Mặt kính bảo vệ</li>
+          <li><span class="legend-dot legend-dot--1"></span>Khung phím bấm</li>
+          <li><span class="legend-dot legend-dot--2"></span>Bo mạch CPU mới</li>
+          <li><span class="legend-dot legend-dot--3"></span>Vỏ sau bền chắc</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== 4.6. TEASER — dẫn sang exploded-view.html ====== -->
+    <section class="rota-teaser" id="rota-teaser" aria-label="Khám phá góc nhìn 360°">
+      <div class="container">
+        <div class="rota-teaser__inner">
+          <div class="rota-teaser__copy">
+            <p class="eyebrow" data-reveal>Góc nhìn 360°</p>
+            <h2 class="rota-teaser__title" data-reveal data-reveal-delay="100">Mạnh hơn về góc nhìn.</h2>
+            <p class="rota-teaser__desc" data-reveal data-reveal-delay="200">
+              Cùng chiếc fx-580VN X — quan sát từ góc nghiêng, thấy từng linh kiện trải ra khi cuộn. Trải nghiệm exploded view chuyên sâu trong một trang riêng.
+            </p>
+            <a class="rota-teaser__btn" href="exploded-view.html" data-reveal data-reveal-delay="300">
+              <span>Khám phá góc nhìn 360°</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <a class="rota-teaser__preview" href="exploded-view.html" data-reveal data-reveal-delay="200" aria-label="Mở góc nhìn 360°">
+            <img src="assets/img/product/580/rota_2/ex_view/Casio fx580_rota_full.png" alt="Casio fx-580VN X — góc nghiêng" loading="lazy" decoding="async" />
+            <span class="rota-teaser__preview-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ====== 5. FEATURE BLOCKS (zig-zag, ASUS-style "Big on X") ====== -->
     <section class="section" id="features" aria-label="Tính năng nổi bật">
       <div class="container">
@@ -219,18 +340,18 @@
               <p class="feature-block__desc">
                 580+ hàm số tích hợp — từ đạo hàm, tích phân, ma trận đến phương trình bậc cao và phân phối thống kê. Mọi thứ bạn cần cho THPT, đại học, kỳ thi quốc gia — đều có sẵn trong một chiếc máy.
               </p>
-              <div class="feature-stats" style="grid-template-columns:repeat(3,1fr);">
+              <div class="feature-stats feature-stats--3">
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:var(--color-primary);">580+</p>
-                  <p style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">hàm tích hợp</p>
+                  <p class="feature-stat__value">580<span class="feature-stat__value-sub">+</span></p>
+                  <p class="feature-stat__label">hàm tích hợp</p>
                 </div>
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:var(--color-primary);">47</p>
-                  <p style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">đơn vị khoa học</p>
+                  <p class="feature-stat__value">47</p>
+                  <p class="feature-stat__label">đơn vị khoa học</p>
                 </div>
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:var(--color-primary);">9</p>
-                  <p style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">menu icon trực quan</p>
+                  <p class="feature-stat__value">9</p>
+                  <p class="feature-stat__label">menu icon trực quan</p>
                 </div>
               </div>
             </div>
@@ -245,6 +366,7 @@
 
     <!-- Feature 2 — Hiển thị (dark) -->
     <section class="section section--dark" id="feat-display" aria-label="Màn hình High-Resolution">
+      <span class="side-label" aria-hidden="true">High-Resolution Display</span>
       <div class="container">
         <div class="feature-block">
           <div class="feature-block__grid">
@@ -259,20 +381,20 @@
               </p>
               <div class="feature-stats">
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:#fff;">192<span style="font-size:18px; color:rgba(255,255,255,0.55);">×63</span></p>
-                  <p style="font-size:13px; color:rgba(255,255,255,0.55); margin-top:6px;">pixel HD</p>
+                  <p class="feature-stat__value">192<span class="feature-stat__value-sub">×63</span></p>
+                  <p class="feature-stat__label">pixel HD</p>
                 </div>
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:#fff;">4×</p>
-                  <p style="font-size:13px; color:rgba(255,255,255,0.55); margin-top:6px;">độ nét vs. đời cũ</p>
+                  <p class="feature-stat__value">4×</p>
+                  <p class="feature-stat__label">độ nét vs. đời cũ</p>
                 </div>
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:#fff;">Natural</p>
-                  <p style="font-size:13px; color:rgba(255,255,255,0.55); margin-top:6px;">V.P.A.M hiển thị</p>
+                  <p class="feature-stat__value">Natural</p>
+                  <p class="feature-stat__label">V.P.A.M hiển thị</p>
                 </div>
                 <div>
-                  <p style="font-size:32px; font-weight:700; line-height:1; letter-spacing:-0.02em; color:#fff;">4 dòng</p>
-                  <p style="font-size:13px; color:rgba(255,255,255,0.55); margin-top:6px;">cùng lúc</p>
+                  <p class="feature-stat__value">4 dòng</p>
+                  <p class="feature-stat__label">cùng lúc</p>
                 </div>
               </div>
             </div>
@@ -298,6 +420,20 @@
               <p class="feature-block__desc">
                 Một chạm tạo QR Code — mở thẳng kết quả tính toán trên <strong>ClassWiz App</strong>. Đồ thị, bảng giá trị, lịch sử bài làm — chia sẻ tức thì lên điện thoại, máy tính bảng.
               </p>
+              <div class="feature-stats feature-stats--3">
+                <div>
+                  <p class="feature-stat__value">QR</p>
+                  <p class="feature-stat__label">Mã hai chiều thế hệ mới</p>
+                </div>
+                <div>
+                  <p class="feature-stat__value">iOS &amp; Android</p>
+                  <p class="feature-stat__label">ClassWiz App tương thích</p>
+                </div>
+                <div>
+                  <p class="feature-stat__value">1 chạm</p>
+                  <p class="feature-stat__label">Xuất đồ thị, lưu lịch sử</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="feature-block__visual feature-block__visual--full" data-reveal data-reveal-delay="200">
@@ -309,6 +445,7 @@
 
     <!-- Feature 4 — Năng lượng (dark) -->
     <section class="section section--dark" id="feat-solar" aria-label="Pin năng lượng mặt trời">
+      <span class="side-label" aria-hidden="true">Solar + Battery Backup</span>
       <div class="container">
         <div class="feature-block">
           <div class="feature-block__grid">
@@ -321,6 +458,20 @@
               <p class="feature-block__desc">
                 Pin năng lượng mặt trời kết hợp pin dự phòng — sẵn sàng cho kỳ thi dài, không lo hết pin giữa giờ. Tuổi thọ pin trung bình 3 năm trong điều kiện sử dụng hàng ngày.
               </p>
+              <div class="feature-stats feature-stats--3">
+                <div>
+                  <p class="feature-stat__value">Solar<span class="feature-stat__value-sub"> + Pin</span></p>
+                  <p class="feature-stat__label">Năng lượng kép</p>
+                </div>
+                <div>
+                  <p class="feature-stat__value">~3<span class="feature-stat__value-sub"> năm</span></p>
+                  <p class="feature-stat__label">Tuổi thọ pin trung bình</p>
+                </div>
+                <div>
+                  <p class="feature-stat__value">0<span class="feature-stat__value-sub"> lo</span></p>
+                  <p class="feature-stat__label">Hết pin giữa kỳ thi</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="feature-block__visual feature-block__visual--full" data-reveal data-reveal-delay="200">
@@ -391,7 +542,11 @@
     <!-- ====== 7. LIFESTYLE (real-world usage) ====== -->
     <section class="section lifestyle" id="usage" aria-label="Ứng dụng thực tế">
       <div class="container">
-        <h2 class="lifestyle__title" data-reveal>Đồng hành cùng học sinh, sinh viên<br/>trên mọi giảng đường.</h2>
+        <header class="lifestyle__head" data-reveal>
+          <p class="eyebrow">Ứng dụng thực tế</p>
+          <h2 class="lifestyle__title">Đồng hành trên mọi giảng đường.</h2>
+          <p class="lead" style="margin:16px auto 0;">Từ phòng học THPT đến giảng đường đại học — fx-880BTG đã có mặt bên cạnh hàng triệu học sinh, sinh viên Việt Nam.</p>
+        </header>
         <div class="lifestyle__grid">
           <div class="lifestyle__item" data-reveal>
             <img src="assets/img/hero/life-classroom.svg" alt="Học sinh dùng Casio fx-880BTG trong lớp toán THPT" />
@@ -421,11 +576,12 @@
         </div>
 
         <div class="partners" data-reveal data-reveal-delay="300" aria-label="Đối tác giáo dục">
-          <span class="partners__item">CHUYÊN LÊ HỒNG PHONG</span>
-          <span class="partners__item">CHUYÊN HÀ NỘI – AMSTERDAM</span>
-          <span class="partners__item">ĐH BÁCH KHOA HÀ NỘI</span>
-          <span class="partners__item">ĐH KINH TẾ TP.HCM</span>
-          <span class="partners__item">ĐH SƯ PHẠM HÀ NỘI</span>
+          <p class="partners__caption">Tin dùng tại nhiều trường học &amp; đại học hàng đầu Việt Nam</p>
+          <span class="partners__item">Chuyên Lê Hồng Phong</span>
+          <span class="partners__item">Chuyên Hà Nội — Amsterdam</span>
+          <span class="partners__item">ĐH Bách khoa Hà Nội</span>
+          <span class="partners__item">ĐH Kinh tế TP.HCM</span>
+          <span class="partners__item">ĐH Sư phạm Hà Nội</span>
         </div>
       </div>
     </section>

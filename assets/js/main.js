@@ -2,7 +2,7 @@
    Entry point — Bitex landing page
    ========================================================================== */
 
-import { initReveal, initCountUp, initNavScroll, initParallax, initColorPicker } from './animations.js';
+import { initReveal, initCountUp, initNavScroll, initParallax, initColorPicker, initExplosion } from './animations.js';
 import { initNav } from './nav.js';
 
 const boot = () => {
@@ -12,6 +12,7 @@ const boot = () => {
   initCountUp();
   initParallax();
   initColorPicker();
+  initExplosion();
 };
 
 if (document.readyState === 'loading') {
