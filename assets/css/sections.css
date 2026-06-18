@@ -496,6 +496,117 @@
   .calc-explosion__layer { transition: none; }
 }
 
+/* ==========================================================================
+   4.6. ROTA TEASER — dẫn sang exploded-view.html
+   ========================================================================== */
+.rota-teaser {
+  background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary) 100%);
+  color: #fff;
+  padding-block: var(--space-9);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1024px) { .rota-teaser { padding-block: var(--space-10); } }
+.rota-teaser::before {
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto auto;
+  width: 60%; aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(227,6,19,0.18), transparent);
+  pointer-events: none;
+}
+
+.rota-teaser__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .rota-teaser__inner {
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-9);
+  }
+}
+
+.rota-teaser__copy { order: 0; }
+.rota-teaser__copy .eyebrow { color: rgba(255,255,255,0.7); }
+
+.rota-teaser__title {
+  margin-top: var(--space-3);
+  font-size: clamp(28px, 3.4vw, 48px);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: 1.1;
+  color: #fff;
+}
+.rota-teaser__desc {
+  margin-top: var(--space-4);
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.75);
+  max-width: 52ch;
+}
+.rota-teaser__btn {
+  margin-top: var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: #fff;
+  color: var(--color-primary-deep);
+  border-radius: var(--radius-pill);
+  font-weight: var(--fw-semibold);
+  font-size: 15px;
+  transition: transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+  min-height: 48px;
+}
+.rota-teaser__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+}
+.rota-teaser__btn svg { transition: transform var(--dur-fast) ease; }
+.rota-teaser__btn:hover svg { transform: translateX(4px); }
+
+.rota-teaser__preview {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 60%),
+    rgba(255,255,255,0.04);
+  padding: var(--space-5);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out);
+  aspect-ratio: 16 / 11;
+}
+@media (min-width: 1024px) { .rota-teaser__preview { aspect-ratio: 16 / 10; } }
+.rota-teaser__preview img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.45));
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.rota-teaser__preview:hover { transform: translateY(-4px); }
+.rota-teaser__preview:hover img { transform: scale(1.03); }
+
+.rota-teaser__preview-hint {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(227,6,19,0.45);
+  transition: transform var(--dur-fast) ease;
+}
+.rota-teaser__preview:hover .rota-teaser__preview-hint {
+  transform: translateX(4px);
+}
+
 /* ---------- 3. USP STRIP (numbers — count-up) ---------- */
 .usp-strip {
   background: var(--color-bg-alt);
